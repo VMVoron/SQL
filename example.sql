@@ -1,12 +1,13 @@
+///https://sql-academy.org/ru/sandbox
 
-Задание 1.
+Задание 1: Найдите всех учеников, у которых имя начинается на букву A.
 SELECT * FROM Student WHERE first_name LIKE 'A%';
 
-Задание 2.
+Задание 2: Найдите всех учеников c фамилиями 'Evseeva', 'Osipova' и 'Lukina'.
 SELECT * FROM Student 
 WHERE last_name IN ('Evseeva', 'Osipova', 'Lukina');
 
-Задание 3.
+Задание 3: Посчитайте сколько учеников в классах. Отсортируйте по количеству учеников в порядке убывания.
 SELECT 
       c.name class_name, 
       COUNT(DISTINCT s.student) student_count
@@ -18,6 +19,8 @@ FROM
 GROUP BY c.name
 ORDER BY 2 DESC;
 
+
+Задание 4: Из задания 3 выберите только те классы, в которых количество учеников меньше 10.
 Задание 4.1
 SELECT * FROM (
     SELECT 
@@ -32,6 +35,7 @@ SELECT * FROM (
     ORDER BY 2 DESC) as X
 WHERE student_count < 10;
 
+Задание 4: Составьте расписание для '11 A' класса с 2019-09-01 по 2019-09-30. Отсортируйте по дате и времени пар в порядке возрастания.
 Задание 4.2.
 SELECT 
     DATE_FORMAT(date, '%Y-%m-%d') as date_pair, 
@@ -47,6 +51,8 @@ FROM
     JOIN Teacher T ON T.id = sch.teacher
 WHERE date BETWEEN '2019-09-01T00:00:00.000Z' AND '2019-09-03T00:00:00.000Z';
 
+
+Задание 5: Выведите полный список учителей и студентов с указанием типа (student или teacher).
 Задание 5.
 SELECT 
     'teacher' as 'school_member',
@@ -81,6 +87,7 @@ FROM
             AND T.middle_name = S.middle_name
 WHERE T.last_name IS NULL AND T.first_name IS NULL AND T.middle_name IS NULL;
 
+Задание 6: Посчитайте сколько часов занимают занятия по расписанию. Сгруппируйте результат по предмету и классу. Округлите до одного знака после запятой.
 Задание 6.
 SELECT 
     C.name AS class_name, 
