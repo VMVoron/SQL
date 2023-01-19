@@ -1,4 +1,4 @@
-///https://sql-academy.org/ru/sandbox
+https://sql-academy.org/ru/sandbox
 
 Задание 1: Найдите всех учеников, у которых имя начинается на букву A.
 SELECT * FROM Student WHERE first_name LIKE 'A%';
